@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.1/angular.min.js">
+    </script>
+    <script type="text/javascript" src="./js/main.js">
+    </script>
+  </head>
+  <body>
+    <div ng-controller="mainController">
+      <div class="product-container">
+      <h1 >Welcome in angular js and node js project {{1+2}}</h1>
+      <div class="product" ng-repeat="book in products">
+        <h3>{{book.name}}</h3>
+        <p>{{book.price}}</p>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
