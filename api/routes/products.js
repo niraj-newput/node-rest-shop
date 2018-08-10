@@ -5,15 +5,17 @@ const mongoose = require('mongoose');
 const Product = require('../models/product');
 const multer = require('multer');
 const checkAuth = require('../middleware/check-auth');
-// const storage = multer.diskStorage({
-//   destination: function(req, file, cb){
-//     cb(null,"./uploads/");
-//   },
-//   filename: function(req, file, cb){
-//     cb(null, new Date().toISOString()+file.originalname)
-//   }
-// });
-const upload = multer({dest: 'uploads/'});
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb){
+    cb(null,'./uploads/');
+  },
+  filename: function(req, file, cb){
+    cb(null, Date.now() + file.originalname)
+  }
+});
+console.log(storage);
+const upload = multer({storage: storage});
 
 router.get('/', (req, res, next) => {
   Product.find()
